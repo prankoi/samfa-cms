@@ -1,0 +1,49 @@
+<div class="my-container my-black">
+	REPORTS
+</div>
+<div class="my-center" style="margin-top: 30px; margin-bottom: 30px">
+	<form class="my-container my-light-grey" th:action="@{/report/generate}" th:object="${report}" method="post" style="width: 70%">
+		<h3>Total Income Report</h3>
+		<p class="my-left-align">
+			<label>Report Type:</label>
+			<select class="my-select" th:field="*{reportType}">
+				<option value="totalCash">Total Cash Income</option>
+				<option value="totalCard">Total Card Income</option>
+				<option value="daily">Daily Income</option>
+				<option value="weekly">Weekly Income</option>
+				<option value="monthly">Monthly Income</option>
+				<option value="dailyTrip">Daily Trip Income</option>
+				<option value="weeklyTrip">Weekly Trip Income</option>
+				<option value="monthlyTrip">Monthly Trip Income</option>
+				<option value="dailyDelivery">Daily Trip Income</option>
+				<option value="weeklyDelivery">Weekly Trip Income</option>
+				<option value="monthlyDelivery">Monthly Trip Income</option>
+			</select>
+			<input class="my-button my-blue" type="submit" value="Generate" />
+		</p>
+	</form>
+	<form class="my-container my-light-grey" th:action="@{/report/generate/driver}" th:object="${reportDriver}"
+		method="post" style="width: 70%">
+		<h3>Total Income Report Per Driver</h3>
+		<p class="my-left-align">
+			<label>Choose a Driver:</label>
+			<select class="my-select" th:field="*{driverId}">
+				<option th:each="driver : ${drivers}" th:value="${driver.driverId}" th:text="${driver.driverId} + ': ' +
+				${driver.firstName} + ' ' + ${driver.lastName}"></option>
+			</select>
+			<label>Report Type:</label>
+			<select class="my-select" th:field="*{reportType}">
+				<option value="daily">Daily Income</option>
+				<option value="weekly">Weekly Income</option>
+				<option value="monthly">Monthly Income</option>
+				<option value="dailyTrip">Daily Trip Income</option>
+				<option value="weeklyTrip">Weekly Trip Income</option>
+				<option value="monthlyTrip">Monthly Trip Income</option>
+				<option value="dailyDelivery">Daily Delivery Income</option>
+				<option value="weeklyDelivery">Weekly Delivery Income</option>
+				<option value="monthlyDelivery">Monthly Delivery Income</option>
+			</select>
+			<input class="my-button my-blue" type="submit" value="Generate" />
+		</p>
+	</form>
+</div>

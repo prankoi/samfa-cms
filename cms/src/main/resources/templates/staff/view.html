@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head> 
+    <title th:text="@{'Samfa CMS - ' + ${title}}"></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<link th:href="@{/styles/cssandjs/mystyle.css}" rel="stylesheet" />
+</head>
+<body>
+	<div class="my-sidebar my-light-grey my-bar-block" style="width:15%">
+		<h3 class="my-bar-item" style="width:300px">Menu</h3>
+		<a href="/customer" class="my-bar-item my-button">Customers</a>
+		<a href="/driver" class="my-bar-item my-button">Drivers</a>
+		<a href="/vehicle" class="my-bar-item my-button">Vehicles</a>
+		<a href="/trip" class="my-bar-item my-button">Trips</a>
+		<a href="/delivery" class="my-bar-item my-button">Deliveries</a>
+		<a href="/promo" class="my-bar-item my-button">Promos</a>
+	</div>
+
+	<div style="margin-left: 15%">
+		<div class="my-container my-green">
+			<h1 class="my-right-align"><a href="/logout">Log-out</a></h1>
+		</div>
+		<div th:replace="@{'fragments/' + ${profileType} + '/' + ${view} + '/' + ${action}}"></div>
+	</div>
+</body>
+</html>

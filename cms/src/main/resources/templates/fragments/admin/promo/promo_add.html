@@ -1,0 +1,34 @@
+<div class="my-container my-black">
+	ADD PROMO
+</div>
+<center>
+	<form class="my-container my-light-grey" th:action="@{/promo/add}"
+		th:object="${promo}" method="post" style="width: 70%">
+		<p class="my-left-align">
+			<label>Promo Code</label>
+			<input class="my-input my-border" type="text" th:field="*{promoCode}" required />
+		</p>
+		<p class="my-left-align">
+			<label>Promo Type</label>
+			<select class="my-select" th:field="*{promoType}" required >
+				<option value="trip">Trip</option>
+				<option value="delivery">Delivery</option>
+			</select>
+		</p>
+		<p class="my-left-align"
+			<label>Discount</label>
+			<input class="my-input my-border" type="number" th:field="*{discount}" required />
+		</p>
+		<p class="my-left-align">
+			<label>Start Date</label>
+			<input class="my-input my-border" type="datetime-local" th:field = "*{startDate}" required />
+		</p>
+		<p class="my-left-align">
+			<label>End Date</label>
+			<input class="my-input my-border" type="datetime-local" th:field = "*{endDate}" required />
+		</p>
+		<p class="my-left-align">
+			<input class="my-button my-blue" type="submit" value="Submit" /> <input class="my-button my-black" type="reset" value="Reset" />
+		</p>
+	</form>
+</center>

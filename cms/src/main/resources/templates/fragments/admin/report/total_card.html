@@ -1,0 +1,25 @@
+<div class="my-container my-black">
+	TOTAL CARD INCOME REPORT
+</div>
+<div class="my-center" style="margin-top: 30px; margin-bottom: 30px">
+
+</div>
+
+<div class="my-container">
+	<tbody>
+		<table class="my-table-all my-hoverable">
+			<thead>
+				<tr class="my-light-grey">
+					<th>Total (Trip)</th>
+					<th>Total (Delivery)</th>
+					<th>Total Card Income</th>
+				</tr>
+			</thead>
+			<tr>
+				<td th:text="${totalCardTrip}" />
+				<td th:text="${totalCardDelivery}" />
+				<td th:text="${totalCard}" />
+			</tr>
+		</table>
+	</tbody>
+</div>

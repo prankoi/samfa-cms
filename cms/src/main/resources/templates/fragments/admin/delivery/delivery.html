@@ -1,0 +1,58 @@
+<div class="my-container my-black">
+	BOOKED DELIVERY INFORMATION
+</div>
+<div class="my-center" style="margin-top: 30px; margin-bottom: 30px">
+	<form class="my-container my-light-grey" th:action="@{/delivery/generate}" th:object="${sortAndFilter}" method="post" style="width: 70%">
+		<p class="my-left-align">
+			<label>Sort by:</label>
+			<select class="my-select" th:field="*{sorting}">
+				<option value="newest">Newest</option>
+				<option value="oldest">Oldest</option>
+			</select>
+			<label>Filter by:</label>
+			<select class="my-select" th:field="*{filter}">
+				<option value="all">All</option>
+				<option value="cash">Cash Payment</option>
+				<option value="card">Card Payment</option>
+				<option value="confirmed">Confirmed</option>
+				<option value="cancelled">Cancelled</option>
+				<option value="fulfilled">Fulfilled</option>
+			</select>
+			<input class="my-button my-blue" type="submit" value="View" />
+		</p>
+	</form>
+</div>
+
+<div class="my-container">
+	<tbody>
+		<table class="my-table-all my-hoverable">
+			<thead>
+				<tr class="my-light-grey">
+					<th>Reference Number</th>
+					<th>Confirmation Date</th>
+					<th>Delivery Fee</th>
+					<th>Status</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tr th:each="delivery: ${deliveryPage.content}">
+				<td th:text="${delivery.referenceNumber}" />
+				<td th:text="${delivery.confirmationDate}" />
+				<td th:text="${delivery.bookingFee}" />
+				<td th:text="${delivery.status}" />
+				<td>
+						<a th:href="@{'/delivery/' + ${delivery.referenceNumber}}" class="my-button my-green">More Info</a>
+						<a th:href="@{'/delivery/delete/' + ${delivery.referenceNumber}}" class="my-button my-red">Delete</a>
+				</td>
+			</tr>
+		</table>
+	</tbody>
+	<div class="my-center">
+		<div th:if="${deliveryPage.totalPages > 1}" class="my-pagination my-border" th:each="pageNumber : ${pageNumbers}">
+			<a th:href="@{/delivery(size=${deliveryPage.size}, page=${pageNumber})}"
+			th:class="@{${pageNumber==deliveryPage.number + 1} ? 'my-active'}">
+			<span th:text="${pageNumber}"></span>
+			</a>
+		</div>
+	</div>
+</div>

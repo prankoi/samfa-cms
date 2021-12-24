@@ -1,0 +1,32 @@
+<div class="my-container my-black">
+	ADD CUSTOMER
+</div>
+<center>
+	<form class="my-container my-light-grey" th:action="@{/customer/add}"
+		th:object="${customer}" method="post" style="width: 70%">
+		<p class="my-left-align">
+			<label>First Name</label>
+			<input class="my-input my-border" type="text" th:field="*{firstName}" required />
+		</p>
+		<p class="my-left-align"
+			<label>Last Name</label>
+			<input class="my-input my-border" type="text" th:field="*{lastName}" required />
+		</p>
+		<p class="my-left-align">
+			<label>Email Address</label>
+			<input class="my-input my-border" type="email" th:field="*{emailAddress}" required />
+			<span class="my-text-red" style="font-size:11px" th:text="${error}"></span>
+		</p>
+		<p class="my-left-align">
+			<label>Cellphone Number</label>
+			<input class="my-input my-border" type="text" th:field="*{cellphoneNumber}" required />
+		</p>
+		<p class="my-left-align">
+			<label>Password</label>
+			<input class="my-input my-border" type="password" th:field="*{password}" required />
+		</p>
+		<p class="my-left-align">
+			<input class="my-button my-blue" type="submit" value="Submit" /> <input class="my-button my-black" type="reset" value="Reset" />
+		</p>
+	</form>
+</center>

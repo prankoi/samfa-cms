@@ -1,0 +1,29 @@
+<div class="my-container my-black">
+	TOTAL WEEKLY TRIP INCOME REPORT
+</div>
+<div class="my-center" style="margin-top: 30px; margin-bottom: 30px">
+
+</div>
+
+<div class="my-container">
+	<tbody>
+		<table class="my-table-all my-hoverable">
+			<thead>
+				<tr class="my-light-grey">
+					<th>From</th>
+					<th>To</th>
+					<th>Total No. of Bookings</th>
+					<th>Total Booking Fee</th>
+					<th>Total Income</th>
+				</tr>
+			</thead>
+			<tr th:each="weekly: ${weeklies}">
+				<td th:text="${weekly.startDate}" />
+				<td th:text="${weekly.endDate}" />
+				<td th:text="${weekly.totalBookings}" />
+				<td th:text="${weekly.bookingFee}" />
+				<td th:text="${weekly.totalIncome}" />
+			</tr>
+		</table>
+	</tbody>
+</div>

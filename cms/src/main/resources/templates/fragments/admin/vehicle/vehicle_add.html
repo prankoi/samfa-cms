@@ -1,0 +1,39 @@
+<div class="my-container my-black">
+	ADD VEHICLE
+</div>
+<center>
+	<form class="my-container my-light-grey" th:action="@{/vehicle/add}"
+		th:object="${vehicle}" method="post" style="width: 70%">
+		<p class="my-left-align">
+			<label>Plate Number</label>
+			<input class="my-input my-border" type="text" th:field="*{plateNumber}" required />
+			<span class="my-text-red" style="font-size:11px" th:text="${error}"></span>
+		</p>
+		<p class="my-left-align"
+			<label>Brand</label>
+			<input class="my-input my-border" type="text" th:field="*{brand}" required />
+		</p>
+		<p class="my-left-align">
+			<label>Model</label>
+			<input class="my-input my-border" type="text" th:field = "*{model}" required />
+		</p>
+		<p class="my-left-align">
+			<label>Passenger Capacity</label>
+			<input class="my-input my-border" type="number" th:field = "*{passengerCapacity}" required />
+		</p>
+		<p class="my-left-align">
+			<label>Load Capacity</label>
+			<input class="my-input my-border" type="number" th:field = "*{loadCapacity}" required />
+		</p>
+		<p class="my-left-align">
+			<label>Status</label>
+			<select class="my-select" th:field="*{status}" required >
+				<option value="Available">Available</option>
+				<option value="Not Available">Not Available</option>
+			</select>
+		</p>
+		<p class="my-left-align">
+			<input class="my-button my-blue" type="submit" value="Submit" /> <input class="my-button my-black" type="reset" value="Reset" />
+		</p>
+	</form>
+</center>

@@ -1,0 +1,27 @@
+<div class="my-container my-black">
+	TOTAL DAILY TRIP INCOME REPORT
+</div>
+<div class="my-center" style="margin-top: 30px; margin-bottom: 30px">
+
+</div>
+
+<div class="my-container">
+	<tbody>
+		<table class="my-table-all my-hoverable">
+			<thead>
+				<tr class="my-light-grey">
+					<th>Date</th>
+					<th>Total No. of Bookings</th>
+					<th>Total Booking Fee</th>
+					<th>Total Income</th>
+				</tr>
+			</thead>
+			<tr th:each="daily: ${dailies}">
+				<td th:text="${daily.confirmationDate}" />
+				<td th:text="${daily.totalBookings}" />
+				<td th:text="${daily.bookingFee}" />
+				<td th:text="${daily.totalIncome}" />
+			</tr>
+		</table>
+	</tbody>
+</div>

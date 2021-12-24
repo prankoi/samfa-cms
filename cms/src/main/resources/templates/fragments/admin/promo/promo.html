@@ -1,0 +1,44 @@
+<div class="my-container my-black">
+	PROMO INFORMATION
+</div>
+<div class="my-center" style="margin-top: 30px; margin-bottom: 30px">
+	<a href="/promo/add" class="my-button my-blue">Add Promo</a>
+</div>
+
+<div class="my-container">
+	<tbody>
+		<table class="my-table-all my-hoverable">
+			<thead>
+				<tr class="my-light-grey">
+					<th>Promo ID</th>
+					<th>Promo Code</th>
+					<th>Type</th>
+					<th>Discount</th>
+					<th>Start Date</th>
+					<th>End Date</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tr th:each="promo: ${promoPage.content}">
+				<td th:text="${promo.promoId}" />
+				<td th:text="${promo.promoCode}" />
+				<td th:text="${promo.promoType}" />
+				<td th:text="${promo.discount}" />
+				<td th:text="${promo.startDate}" />
+				<td th:text="${promo.endDate}" />
+				<td>
+					<a th:href="@{'/promo/edit/' + ${promo.promoId}}" class="my-button my-black">Edit</a>
+					<a th:href="@{'/promo/delete/' + ${promo.promoId}}" class="my-button my-red">Delete</a>
+				</td>
+			</tr>
+		</table>
+	</tbody>
+	<div class="my-center">
+		<div th:if="${promoPage.totalPages > 1}" class="my-pagination my-border" th:each="pageNumber : ${pageNumbers}">
+			<a th:href="@{/promo(size=${promoPage.size}, page=${pageNumber})}"
+			th:class="@{${pageNumber==promoPage.number + 1} ? 'my-active'}">
+			<span th:text="${pageNumber}"></span>
+			</a>
+		</div>
+	</div>
+</div>

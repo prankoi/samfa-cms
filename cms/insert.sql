@@ -1,0 +1,1 @@
+INSERT INTO profile (profile_id, username, password, profile_type) VALUES (1, 'admin', 'd033e22ae348aeb5660fc2140aec35850c4da997', 'admin');

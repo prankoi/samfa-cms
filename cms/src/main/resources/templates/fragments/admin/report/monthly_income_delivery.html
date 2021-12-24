@@ -1,0 +1,29 @@
+<div class="my-container my-black">
+	TOTAL MONTHLY DELIVERY INCOME REPORT
+</div>
+<div class="my-center" style="margin-top: 30px; margin-bottom: 30px">
+
+</div>
+
+<div class="my-container">
+	<tbody>
+		<table class="my-table-all my-hoverable">
+			<thead>
+				<tr class="my-light-grey">
+					<th>Month</th>
+					<th>Year</th>
+					<th>Total No. of Bookings</th>
+					<th>Total Booking Fee</th>
+					<th>Total Income</th>
+				</tr>
+			</thead>
+			<tr th:each="monthly: ${monthlies}">
+				<td th:text="${monthly.month}" />
+				<td th:text="${monthly.year}" />
+				<td th:text="${monthly.totalBookings}" />
+				<td th:text="${monthly.bookingFee}" />
+				<td th:text="${monthly.totalIncome}" />
+			</tr>
+		</table>
+	</tbody>
+</div>

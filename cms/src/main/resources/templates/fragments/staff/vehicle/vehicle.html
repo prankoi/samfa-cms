@@ -1,0 +1,43 @@
+<div class="my-container my-black">
+	VEHICLE INFORMATION
+</div>
+<div class="my-center" style="margin-top: 30px; margin-bottom: 30px">
+
+</div>
+
+<div class="my-container">
+	<tbody>
+		<table class="my-table-all my-hoverable">
+			<thead>
+				<tr class="my-light-grey">
+					<th>Vehicle ID</th>
+					<th>Plate Number</th>
+					<th>Brand</th>
+					<th>Model</th>
+					<th>Passenger Capacity</th>
+					<th>Load Capacity</th>
+					<th>Status</th>
+					<th>Is Assignable</th>
+				</tr>
+			</thead>
+			<tr th:each="vehicle: ${vehiclePage.content}">
+				<td th:text="${vehicle.vehicleId}" />
+				<td th:text="${vehicle.plateNumber}" />
+				<td th:text="${vehicle.brand}" />
+				<td th:text="${vehicle.model}" />
+				<td th:text="${vehicle.passengerCapacity}" />
+				<td th:text="${vehicle.loadCapacity}" />
+				<td th:text="${vehicle.status}" />
+				<td th:text="${vehicle.assignability}" />
+			</tr>
+		</table>
+	</tbody>
+	<div class="my-center">
+		<div th:if="${vehiclePage.totalPages > 1}" class="my-pagination my-border" th:each="pageNumber : ${pageNumbers}">
+			<a th:href="@{/vehicle(size=${vehiclePage.size}, page=${pageNumber})}"
+			th:class="@{${pageNumber==vehiclePage.number + 1} ? 'my-active'}">
+			<span th:text="${pageNumber}"></span>
+			</a>
+		</div>
+	</div>
+</div>

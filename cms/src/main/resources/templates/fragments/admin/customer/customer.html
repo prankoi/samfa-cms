@@ -1,0 +1,42 @@
+<div class="my-container my-black">
+	CUSTOMER INFORMATION
+</div>
+<div class="my-center" style="margin-top: 30px; margin-bottom: 30px">
+	<a href="/customer/add" class="my-button my-blue">Add Customer</a>
+</div>
+
+<div class="my-container">
+	<tbody>
+		<table class="my-table-all my-hoverable">
+			<thead>
+				<tr class="my-light-grey">
+					<th>Customer ID</th>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Email Address</th>
+					<th>Mobile No.</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tr th:each="customer : ${customerPage.content}">
+				<td th:text="${customer.customerId}" />
+				<td th:text="${customer.firstName}" />
+				<td th:text="${customer.lastName}" />
+				<td th:text="${customer.emailAddress}" />
+				<td th:text="${customer.cellphoneNumber}" />
+				<td>
+					<a th:href="@{'/customer/edit/' + ${customer.customerId}}" class="my-button my-black">Edit</a>
+					<a th:href="@{'/customer/delete/' + ${customer.customerId}}" class="my-button my-red">Delete</a>
+				</td>
+			</tr>
+		</table>
+	</tbody>
+	<div class="my-center">
+		<div th:if="${customerPage.totalPages > 1}" class="my-pagination my-border" th:each="pageNumber : ${pageNumbers}">
+			<a th:href="@{/customer(size=${customerPage.size}, page=${pageNumber})}"
+			th:class="@{${pageNumber==customerPage.number + 1} ? 'my-active'}">
+			<span th:text="${pageNumber}"></span>
+			</a>
+		</div>
+	</div>
+</div>

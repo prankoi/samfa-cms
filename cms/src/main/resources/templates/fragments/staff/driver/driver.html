@@ -1,0 +1,39 @@
+<div class="my-container my-black">
+	DRIVER INFORMATION
+</div>
+<div class="my-center" style="margin-top: 30px; margin-bottom: 30px">
+
+</div>
+
+<div class="my-container">
+	<tbody>
+		<table class="my-table-all my-hoverable">
+			<thead>
+				<tr class="my-light-grey">
+					<th>Driver ID</th>
+					<th>Assigned Vehicle</th>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Email Address</th>
+					<th>Mobile No.</th>
+				</tr>
+			</thead>
+			<tr th:each="driver : ${driverPage.content}">
+				<td th:text="${driver.driverId}" />
+				<td th:text="@{${driver.vehicleId} + ' - ' + ${driver.vehicleDetails}}" />
+				<td th:text="${driver.firstName}" />
+				<td th:text="${driver.lastName}" />
+				<td th:text="${driver.emailAddress}" />
+				<td th:text="${driver.cellphoneNumber}" />
+			</tr>
+		</table>
+	</tbody>
+	<div class="my-center">
+		<div th:if="${driverPage.totalPages > 1}" class="my-pagination my-border" th:each="pageNumber : ${pageNumbers}">
+			<a th:href="@{/driver(size=${driverPage.size}, page=${pageNumber})}"
+			th:class="@{${pageNumber==driverPage.number + 1} ? 'my-active'}">
+			<span th:text="${pageNumber}"></span>
+			</a>
+		</div>
+	</div>
+</div>

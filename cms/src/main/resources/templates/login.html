@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head> 
+    <title>Samfa CMS - LogIn</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<link th:href="@{/styles/cssandjs/mystyle.css}" rel="stylesheet" />
+</head>
+<body>
+	<center>
+		<div class="my-container" style="width:40%!important">
+			<form th:action="@{/}" th:object="${user}" method="post">
+				<p>
+					<h1>Samfa CMS</h1>
+				</p>
+				<p class="my-left-align">
+					<label>Username</label>
+					<input class="my-input my-border" type="text" th:field="*{username}" />
+				</p>
+				<p class="my-left-align"
+					<label>Password</label>
+					<input class="my-input my-border" type="password" th:field="*{password}" />
+					<span class="my-text-red" style="font-size:11px" th:text="${invalidCredentials}"></span>
+				</p>
+				<p class="my-left-align">
+					<label>Log-in As</label>
+					<select class="my-select" th:field="*{profileType}">
+						<option value="admin">Admin</option>
+						<option value="staff">Staff</option>
+					</select>
+				</p>
+				<p class="my-left-align">
+					<input class="my-button my-green" type="submit" value="Log-in" />
+				</p>
+			</form>
+		</div>
+	</center>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<div class="my-container my-black">
+	BOOKED DELIVERY INFORMATION
+</div>
+<div class="my-center" style="margin-top: 30px; margin-bottom: 30px">
+
+</div>
+
+<div class="my-container" style="padding-bottom: 50px">
+	<tbody>
+		<table class="my-table-all my-hoverable" style="width: 70%">
+			<thead>
+				<tr class="my-light-grey">
+					<th>Booked Delivery Transaction Info</th>
+				</tr>
+			</thead>
+			<tr>
+				<td>Reference Number: </td>
+				<td th:text="${delivery.referenceNumber}" />
+			</tr>
+			<tr>
+				<td>Booked On: </td>
+				<td th:text="${delivery.confirmationDate}" />
+			</tr>
+			<tr>
+				<td>Date of Delivery: </td>
+				<td th:text="${delivery.bookingDate}" />
+			</tr>
+			<tr>
+				<td>Fulfilled On: </td>
+				<td th:text="${delivery.fulfillmentDate}" />
+			</tr>
+			<tr>
+				<td>Customer: </td>
+				<td th:text="@{${customer.firstName} + ' ' + ${customer.lastName}}" />
+			</tr>
+			<tr>
+				<td>Driver: </td>
+				<td th:text="@{${driver.firstName} + ' ' + ${driver.lastName}}" />
+			</tr>
+			<tr>
+				<td>Vehicle: </td>
+				<td th:text="${driver.vehicleDetails}" />
+			</tr>
+			<tr>
+				<td>Pickup Location: </td>
+				<td th:text="${pickup.locationName} + ', ' + ${pickup.locationCity}" />
+			</tr>
+			<tr>
+				<td>Dropoff Location: </td>
+				<td th:text="${dropoff.locationName} + ', ' + ${dropoff.locationCity}" />
+			</tr>
+			<tr>
+				<td>Recipient Name: </td>
+				<td th:text="${delivery.recipientName}" />
+			</tr>
+			<tr>
+				<td>Recipient Contact: </td>
+				<td th:text="${delivery.recipientContact}" />
+			</tr>
+			<tr>
+				<td>Landmarks: </td>
+				<td th:text="${delivery.landmarks}" />
+			</tr>
+			<tr>
+				<td>Distance: </td>
+				<td th:text="${delivery.distance}" />
+			</tr>
+			<tr>
+				<td>Item: </td>
+				<td th:text="'Category - ' + ${item.itemCategory} + ', ' + 'Details - ' + ${item.itemDetails} 
+					+ ', ' + 'Weight - ' + ${item.itemWeight}" />
+			</tr>
+			<tr>
+				<td>Booking Fee: </td>
+				<td th:text="${delivery.bookingFee}" />
+			</tr>
+			<tr>
+				<td>Service Fee: </td>
+				<td th:text="${delivery.serviceFee}" />
+			</tr>
+			<tr>
+				<td>Promo: </td>
+				<td th:text="${delivery.promoId}" />
+			</tr>
+			<tr>
+				<td>Amount Paid: </td>
+				<td th:text="${delivery.amountPaid}" />
+			</tr>
+			<tr>
+				<td>Status: </td>
+				<td th:text="${delivery.status}" />
+			</tr>
+		</table>
+	</tbody>
+</div>
