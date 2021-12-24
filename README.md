@@ -1,6 +1,6 @@
 ## Samfa CMS
 
-#Installation
+# Installation
 - import database.sql and insert.sql
 - log-in with the following credentials:
 
@@ -10,7 +10,7 @@ password: admin
 login as: admin
 ```
 
-#Important Notes
+# Important Notes
 - Reports module can only work if ONLY_FULL_GROUP_BY in sql_mode is disabled in the database server by default
 - Before running the app, please disable such restriction by running this command as super admin in the database:
 
